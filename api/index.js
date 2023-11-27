@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv'
 import authRouter from './routes/auth.route.js';
 import UserRouter from './routes/user.route.js'
+import listingRouter from './routes/listing.route.js'
 
 import cookieParser from 'cookie-parser';
 dotenv.config();
@@ -22,6 +23,7 @@ app.use(cookieParser())
 //all these are middlewares
 app.use('/api/user',UserRouter);
 app.use('/api/auth', authRouter);
+app.use('/api/listing', listingRouter);
 
 app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
